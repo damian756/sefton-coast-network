@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
-import { SiteTracker } from "@/components/SiteTracker";
-
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -39,7 +37,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
       <body>
         {children}
-        <SiteTracker />
       </body>
     </html>
   );
