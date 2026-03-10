@@ -1,9 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteTracker } from "@/components/SiteTracker";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://seftoncoast.network"),
@@ -23,8 +36,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
+    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
+      <body>
         {children}
         <SiteTracker />
       </body>
