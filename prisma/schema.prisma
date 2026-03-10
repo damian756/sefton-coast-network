@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model PageView {
+  id        String   @id @default(cuid())
+  path      String
+  referrer  String?
+  device    String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([path])
+}
+
+model Enquiry {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  enquiryType String
+  message     String   @db.Text
+  createdAt   DateTime @default(now())
+}
