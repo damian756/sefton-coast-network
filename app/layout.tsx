@@ -35,6 +35,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
+      <head>
+        {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="VZMuif4xoL80Qc7RhE6rtg" async></script>
+      </head>
       <body>
         {children}
       </body>
