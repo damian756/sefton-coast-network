@@ -281,7 +281,7 @@ export default function HomePage() {
             </a>
           ))}
         </div>
-        <div className="footer-copy">© {new Date().getFullYear()} Sefton Coast Network. Published by Churchtown Media Ltd.</div>
+        <div className="footer-copy">© {new Date().getFullYear()} Sefton Coast Network. Published by Churchtown Media Ltd (Company No. 16960442), registered office Suite RA01, 195-197 Wood Street, London, E17 3NU.</div>
       </footer>
     </>
   );
