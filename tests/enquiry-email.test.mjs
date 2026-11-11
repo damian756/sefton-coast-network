@@ -129,3 +129,16 @@ test("route uses the helpers and checks the result of resend.emails.send", () =>
   assert.match(src, /catch\s*\(err\)\s*\{\s*logSendError\(err\)/);
   assert.match(src, /isValidEmail\(email\)/);
 });
+
+test("no route or helper can fall back to Resend's test sender (resend.dev)", async () => {
+  const { readdirSync, statSync } = await import("node:fs");
+  const { join } = await import("node:path");
+  const root = new URL("..", import.meta.url);
+  const walk = (dir) =>
+    readdirSync(new URL(dir, root)).flatMap((name) => {
+      const rel = join(dir, name).split(String.fromCharCode(92)).join("/");
+      return statSync(new URL(rel, root)).isDirectory() ? walk(rel + "/") : [rel];
+    });
+  const files = [...walk("app/"), ...walk("lib/"), ...walk("components/")].filter((f) => /\.(ts|tsx|js|mjs)$/.test(f));
+  for (const f of files) assert.ok(!read(f).includes("resend.dev"), `${f} mentions resend.dev`);
+});
