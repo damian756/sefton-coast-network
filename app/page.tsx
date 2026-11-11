@@ -11,8 +11,8 @@ const SITES = [
     domain: "southportguide.co.uk",
     url: "https://www.southportguide.co.uk",
     description:
-      "The definitive visitor guide to Southport: hotels, restaurants, events, things to do, and everything you need to plan a trip to one of England's great seaside towns. Home of The Open Championship 2026 hub.",
-    tags: ["Tourism", "Events", "Accommodation", "The Open 2026"],
+      "A visitor guide to Southport: hotels, restaurants, events, things to do, and everything you need to plan a trip to one of England's great seaside towns.",
+    tags: ["Tourism", "Events", "Accommodation", "Things to Do"],
   },
   {
     number: "02",
@@ -21,7 +21,7 @@ const SITES = [
     domain: "formbyguide.co.uk",
     url: "https://www.formbyguide.co.uk",
     description:
-      "Your complete guide to Formby: the National Trust pinewoods, red squirrel reserve, Formby Beach, the village, and the best places to eat. Everything a day tripper or weekend visitor needs, from a local who knows it.",
+      "Your complete guide to Formby: the National Trust pinewoods, red squirrel reserve, Formby Beach, the village, and the best places to eat. Everything a day tripper or weekend visitor needs.",
     tags: ["Nature", "Red Squirrels", "Beach", "Village"],
   },
   {
@@ -31,7 +31,7 @@ const SITES = [
     domain: "seftonlinks.com",
     url: "https://www.seftonlinks.com",
     description:
-      "The world's greatest links golf corridor: six championship courses within ten miles of coastline. Course guides, conditions, tee time policies, golf break itineraries, and The Open 2026 at Royal Birkdale. Available in 20 languages.",
+      "Guides to six golf clubs: Royal Birkdale, Hillside, Formby, West Lancashire, Southport & Ainsdale and Southport Old Links. Course guides, conditions, tee time policies and golf break itineraries.",
     tags: ["Golf Tourism", "Royal Birkdale", "Multilingual", "The Open"],
   },
   {
@@ -148,8 +148,8 @@ export default function HomePage() {
               <span className="stat-pill-label">Of Coastline</span>
             </div>
             <div className="stat-pill">
-              <span className="stat-pill-num">2026</span>
-              <span className="stat-pill-label">The Open Returns</span>
+              <span className="stat-pill-num">6</span>
+              <span className="stat-pill-label">Golf Club Guides</span>
             </div>
           </div>
           <svg className="coastline-svg" viewBox="0 0 800 200" preserveAspectRatio="none">
@@ -261,7 +261,13 @@ export default function HomePage() {
             <option>Advertising</option>
             <option>General enquiry</option>
           </select>
-          <textarea name="message" placeholder="Tell us about your enquiry..." />
+          <textarea
+            name="message"
+            placeholder="Tell us about your enquiry..."
+            required
+            onInvalid={(e) => e.currentTarget.setCustomValidity("Please add a message.")}
+            onInput={(e) => e.currentTarget.setCustomValidity("")}
+          />
           <button
             type="submit"
             className="form-submit"
