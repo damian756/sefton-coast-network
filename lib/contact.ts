@@ -1,4 +1,10 @@
-export const ENQUIRY_EMAIL = "hello@seftoncoast.network";
+// What a visitor sees on the site (mailto links, printed address). Changing the
+// public address is this one line.
+export const DISPLAY_EMAIL = "hello@seftoncoast.network";
+
+// Where every enquiry form delivers (the `to`). Damian, 11 Nov 2026: one inbox
+// for the Churchtown Media site and all five Sefton Coast sites.
+export const DELIVERY_EMAIL = "damian@churchtownmedia.co.uk";
 
 export const ENQUIRY_TYPES = [
   "Featured listing",
@@ -41,7 +47,7 @@ export function buildEnquiryEmail(input: {
 }) {
   return {
     from: FROM_EMAIL,
-    to: [ENQUIRY_EMAIL],
+    to: [DELIVERY_EMAIL],
     replyTo: isValidEmail(input.email) ? input.email : undefined,
     subject: `New enquiry: ${oneLine(input.type)} from ${oneLine(input.name)}`,
     html:

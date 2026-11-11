@@ -4,20 +4,24 @@ import { readFileSync } from "node:fs";
 import { buildEnquiryEmail, escapeHtml, isValidEmail, logSendError, FROM_EMAIL } from "../lib/contact.ts";
 
 const read = (p) => readFileSync(new URL(`../${p}`, import.meta.url), "utf8");
-const EXPECTED = "hello@seftoncoast.network";
+const DISPLAY = "hello@seftoncoast.network";
+const DELIVERY = "damian@churchtownmedia.co.uk";
 const changed = ["lib/contact.ts", "app/api/contact/route.ts", "app/page.tsx", "components/ContactForm.tsx"];
 
-test("ENQUIRY_EMAIL constant is hello@seftoncoast.network", () => {
-  const m = read("lib/contact.ts").match(/export const ENQUIRY_EMAIL\s*=\s*"([^"]+)"/);
-  assert.ok(m, "constant not found");
-  assert.equal(m[1], EXPECTED);
-  assert.match(m[1], /^[\x20-\x7e]+$/, "must be plain ASCII");
+test("DISPLAY_EMAIL is hello@seftoncoast.network and DELIVERY_EMAIL is damian@churchtownmedia.co.uk", () => {
+  const src = read("lib/contact.ts");
+  const d = src.match(/export const DISPLAY_EMAIL\s*=\s*"([^"]+)"/);
+  const v = src.match(/export const DELIVERY_EMAIL\s*=\s*"([^"]+)"/);
+  assert.ok(d && v, "constants not found");
+  assert.equal(d[1], DISPLAY);
+  assert.equal(v[1], DELIVERY);
+  for (const m of [d, v]) assert.match(m[1], /^[\x20-\x7e]+$/, "must be plain ASCII");
 });
 
-test("destination is ENQUIRY_EMAIL, built in lib/contact.ts and used by the route", () => {
-  assert.match(read("lib/contact.ts"), /to:\s*\[\s*ENQUIRY_EMAIL\s*\]/);
+test("forms deliver to DELIVERY_EMAIL, built in lib/contact.ts and used by the route", () => {
+  assert.match(read("lib/contact.ts"), /to:\s*\[\s*DELIVERY_EMAIL\s*\]/);
   assert.match(read("app/api/contact/route.ts"), /buildEnquiryEmail\(/);
-  assert.deepEqual(buildEnquiryEmail({ name: "a", email: "a@b.co", type: "t", message: "m" }).to, [EXPECTED]);
+  assert.deepEqual(buildEnquiryEmail({ name: "a", email: "a@b.co", type: "t", message: "m" }).to, [DELIVERY]);
 });
 
 test("no hard-coded address of ours outside lib/contact.ts, except the FROM address", () => {
@@ -27,14 +31,14 @@ test("no hard-coded address of ours outside lib/contact.ts, except the FROM addr
     // The FROM sender address is deliberately left as is.
     src = src.replace(/^\s*\/\/.*$/gm, "").replace(/FROM_EMAIL\s*=\s*"[^"]*"/, "");
     const found = src.match(re) ?? [];
-    if (f === "lib/contact.ts") assert.deepEqual(found, [EXPECTED]);
+    if (f === "lib/contact.ts") assert.deepEqual(found, [DISPLAY, DELIVERY]);
     else assert.deepEqual(found, [], `${f} hard-codes ${found}`);
   }
 });
 
 test("pages that print the address use the constant", () => {
-  assert.match(read("app/page.tsx"), /mailto:\$\{ENQUIRY_EMAIL\}/);
-  assert.match(read("components/ContactForm.tsx"), /\{ENQUIRY_EMAIL\}/);
+  assert.match(read("app/page.tsx"), /mailto:\$\{DISPLAY_EMAIL\}/);
+  assert.match(read("components/ContactForm.tsx"), /\{DISPLAY_EMAIL\}/);
 });
 
 test("form field names are read by the route and every option is accepted", () => {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ENQUIRY_EMAIL } from "@/lib/contact";
+import { DISPLAY_EMAIL } from "@/lib/contact";
 
 const ENQUIRY_TYPES = [
   "Featured listing",
@@ -82,7 +82,7 @@ export function ContactForm() {
         className="w-full bg-slate-800 border border-slate-700 rounded px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-teal-500 resize-none"
       />
       {status === "error" && (
-        <p className="text-red-400 text-sm">Something went wrong. Try emailing {ENQUIRY_EMAIL} directly.</p>
+        <p className="text-red-400 text-sm">Something went wrong. Try emailing {DISPLAY_EMAIL} directly.</p>
       )}
       <button
         type="submit"
