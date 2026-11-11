@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://seftoncoast.network"),
-  title: "Sefton Coast Network — Independent Guides to the Sefton Coast",
+  title: "Sefton Coast Network: Independent Guides to the Sefton Coast",
   description:
     "Four independent editorial guides to Southport, Formby, links golf, and the wildlife of the Sefton Coast. Built for visitors who want to make the most of one of England's most underrated stretches of coastline.",
   openGraph: {

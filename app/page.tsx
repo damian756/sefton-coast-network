@@ -11,7 +11,7 @@ const SITES = [
     domain: "southportguide.co.uk",
     url: "https://www.southportguide.co.uk",
     description:
-      "The definitive visitor guide to Southport — hotels, restaurants, events, things to do, and everything you need to plan a trip to one of England's great seaside towns. Home of The Open Championship 2026 hub.",
+      "The definitive visitor guide to Southport: hotels, restaurants, events, things to do, and everything you need to plan a trip to one of England's great seaside towns. Home of The Open Championship 2026 hub.",
     tags: ["Tourism", "Events", "Accommodation", "The Open 2026"],
   },
   {
@@ -21,7 +21,7 @@ const SITES = [
     domain: "formbyguide.co.uk",
     url: "https://www.formbyguide.co.uk",
     description:
-      "Your complete guide to Formby — the National Trust pinewoods, red squirrel reserve, Formby Beach, the village, and the best places to eat. Everything a day tripper or weekend visitor needs, from a local who knows it.",
+      "Your complete guide to Formby: the National Trust pinewoods, red squirrel reserve, Formby Beach, the village, and the best places to eat. Everything a day tripper or weekend visitor needs, from a local who knows it.",
     tags: ["Nature", "Red Squirrels", "Beach", "Village"],
   },
   {
@@ -31,7 +31,7 @@ const SITES = [
     domain: "seftonlinks.com",
     url: "https://www.seftonlinks.com",
     description:
-      "The world's greatest links golf corridor — six championship courses within ten miles of coastline. Course guides, conditions, tee time policies, golf break itineraries, and The Open 2026 at Royal Birkdale. Available in 20 languages.",
+      "The world's greatest links golf corridor: six championship courses within ten miles of coastline. Course guides, conditions, tee time policies, golf break itineraries, and The Open 2026 at Royal Birkdale. Available in 20 languages.",
     tags: ["Golf Tourism", "Royal Birkdale", "Multilingual", "The Open"],
   },
   {
@@ -41,7 +41,7 @@ const SITES = [
     domain: "seftoncoastwildlife.co.uk",
     url: "https://seftoncoastwildlife.co.uk",
     description:
-      "Species guides, birdwatching, seasonal wildlife, and the best reserves on the Sefton Coast — including Marshside RSPB. Practical information for wildlife spotters, photographers, and anyone who wants to know what they're looking at.",
+      "Species guides, birdwatching, seasonal wildlife, and the best reserves on the Sefton Coast, including Marshside RSPB. Practical information for wildlife spotters, photographers, and anyone who wants to know what they're looking at.",
     tags: ["Wildlife", "Birdwatching", "RSPB", "Species Guides"],
   },
 ];
@@ -50,7 +50,7 @@ const VALUES = [
   {
     num: "01",
     title: "Independent",
-    text: "No tourist board funding. No sponsored editorial. Revenue comes from affiliate commissions and featured listings — always disclosed. Our opinions are our own.",
+    text: "No tourist board funding. No sponsored editorial. Revenue comes from affiliate commissions and featured listings, always disclosed. Our opinions are our own.",
   },
   {
     num: "02",
@@ -60,7 +60,7 @@ const VALUES = [
   {
     num: "03",
     title: "Useful",
-    text: "Built for the visitor making a decision — where to stay, where to eat, when to go, what to expect. Practical first, inspirational second.",
+    text: "Built for the visitor making a decision: where to stay, where to eat, when to go, what to expect. Practical first, inspirational second.",
   },
   {
     num: "04",
@@ -267,7 +267,7 @@ export default function HomePage() {
             className="form-submit"
             disabled={status === "sending" || status === "sent"}
           >
-            {status === "sending" ? "Sending…" : status === "sent" ? "Sent ✓" : status === "error" ? "Failed — try again" : "Send Enquiry →"}
+            {status === "sending" ? "Sending…" : status === "sent" ? "Sent ✓" : status === "error" ? "Failed: try again" : "Send Enquiry →"}
           </button>
         </form>
       </section>
