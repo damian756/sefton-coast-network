@@ -575,13 +575,31 @@ h1 em {
 .form-submit:hover { background: var(--sea); }
 .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 
+.form-privacy {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  opacity: 0.75;
+  margin: 0;
+}
+
 /* FOOTER */
 footer {
   padding: 3rem 5rem;
   background: var(--ink);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  row-gap: 1.5rem;
+}
+
+.footer-privacy {
+  flex-basis: 100%;
+  max-width: 60rem;
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: rgba(245,240,232,0.6);
 }
 
 .footer-logo {
