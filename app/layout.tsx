@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -17,15 +18,14 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://seftoncoast.network"),
+  metadataBase: new URL(SITE_URL),
   title: "Sefton Coast Network: Independent Guides to the Sefton Coast",
-  description:
-    "Four independent editorial guides to Southport, Formby, links golf, and the wildlife of the Sefton Coast. Built for visitors who want to make the most of one of England's most underrated stretches of coastline.",
+  description: SITE_DESCRIPTION,
   openGraph: {
     title: "Sefton Coast Network",
     description: "Four guides. One coastline. Properly covered.",
-    url: "https://seftoncoast.network",
-    siteName: "Sefton Coast Network",
+    url: SITE_URL,
+    siteName: SITE_NAME,
     locale: "en_GB",
     type: "website",
   },

@@ -6,7 +6,7 @@ import { buildEnquiryEmail, escapeHtml, isValidEmail, logSendError, FROM_EMAIL }
 const read = (p) => readFileSync(new URL(`../${p}`, import.meta.url), "utf8");
 const DISPLAY = "hello@seftoncoast.network";
 const DELIVERY = "damian@churchtownmedia.co.uk";
-const changed = ["lib/contact.ts", "app/api/contact/route.ts", "app/page.tsx", "components/ContactForm.tsx"];
+const changed = ["lib/contact.ts", "app/api/contact/route.ts", "app/page.tsx", "components/HomePage.tsx", "components/ContactForm.tsx"];
 
 test("DISPLAY_EMAIL is hello@seftoncoast.network and DELIVERY_EMAIL is damian@churchtownmedia.co.uk", () => {
   const src = read("lib/contact.ts");
@@ -37,13 +37,13 @@ test("no hard-coded address of ours outside lib/contact.ts, except the FROM addr
 });
 
 test("pages that print the address use the constant", () => {
-  assert.match(read("app/page.tsx"), /mailto:\$\{DISPLAY_EMAIL\}/);
+  assert.match(read("components/HomePage.tsx"), /mailto:\$\{DISPLAY_EMAIL\}/);
   assert.match(read("components/ContactForm.tsx"), /\{DISPLAY_EMAIL\}/);
 });
 
 test("form field names are read by the route and every option is accepted", () => {
   const route = read("app/api/contact/route.ts");
-  const page = read("app/page.tsx");
+  const page = read("components/HomePage.tsx");
   const cf = read("components/ContactForm.tsx");
   const lib = read("lib/contact.ts");
 
