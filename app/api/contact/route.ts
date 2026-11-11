@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { Resend } from "resend";
+import { ENQUIRY_EMAIL } from "@/lib/contact";
 
 function getResend() {
   const key = process.env.RESEND_API_KEY;
@@ -25,7 +26,7 @@ export async function POST(req: NextRequest) {
     if (resend) {
       await resend.emails.send({
         from: "Sefton Coast Network <hello@seftoncoast.network>",
-        to: ["hello@seftoncoast.network"],
+        to: [ENQUIRY_EMAIL],
         subject: `New enquiry: ${enquiryType ?? "General"} from ${name}`,
         html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Type:</strong> ${enquiryType}</p><p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>`,
       });

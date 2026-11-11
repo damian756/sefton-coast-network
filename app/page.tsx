@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { ENQUIRY_EMAIL } from "@/lib/contact";
 
 const SITES = [
   {
@@ -239,12 +240,12 @@ export default function HomePage() {
             commitment to the Sefton Coast. Featured listings, partnership opportunities, press
             enquiries, and everything in between.
           </p>
-          <a href="mailto:hello@seftoncoast.network" className="contact-email">
+          <a href={`mailto:${ENQUIRY_EMAIL}`} className="contact-email">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" strokeWidth="1.25" />
               <path d="M1 5l7 5 7-5" stroke="currentColor" strokeWidth="1.25" />
             </svg>
-            hello@seftoncoast.network
+            {ENQUIRY_EMAIL}
           </a>
         </div>
         <form className="contact-form" onSubmit={handleSubmit}>
