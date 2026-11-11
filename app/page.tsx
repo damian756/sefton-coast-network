@@ -50,12 +50,12 @@ const VALUES = [
   {
     num: "01",
     title: "Independent",
-    text: "No tourist board funding. No sponsored editorial. Revenue comes from affiliate commissions and featured listings, always disclosed. Our opinions are our own.",
+    text: "We are paid by advertisers, and every advert, featured place and sponsored article is labelled as one. Paying for a space does not change what we write.",
   },
   {
     num: "02",
-    title: "Local",
-    text: "Written by people who live here. Not content farms. Not AI-generated listicles. Genuine knowledge of places we visit regularly and care about.",
+    title: "Checked",
+    text: "We check opening times, parking, prices and postcodes against official sources when we write a page and when we revise it. If we can't confirm something, we leave it out.",
   },
   {
     num: "03",
@@ -64,8 +64,8 @@ const VALUES = [
   },
   {
     num: "04",
-    title: "Ambitious",
-    text: "The Sefton Coast is world-class. Royal Birkdale. Red squirrels. A Victorian seafront. We're building guides worthy of the places they cover.",
+    title: "Focused",
+    text: "Four guides that cover only the Sefton Coast: Southport, Formby, its golf and its wildlife.",
   },
 ];
 
@@ -165,21 +165,19 @@ export default function HomePage() {
         <div className="mission-text">
           <h2>The Sefton Coast deserves <strong>better than it gets</strong> online.</h2>
           <p>
-            Royal Birkdale is consistently ranked among the world's top five golf courses. Formby's
-            red squirrel reserve draws visitors from across the country. Southport hosts world-class
-            events and has a Victorian seafront that rivals anywhere in England. Yet online, the
-            Sefton Coast is covered by generic aggregators, outdated directories, and tourist board
-            content written for nobody in particular.
+            Royal Birkdale has hosted The Open since 1954, more often in that time than any venue
+            except St Andrews, most recently in July 2026. The pinewoods at Formby are part of the
+            most southerly red squirrel stronghold on mainland England. Yet much of what is online
+            about the coast is generic or out of date.
           </p>
           <p>
-            The Sefton Coast Network exists to change that. Four independent editorial guides, each
-            covering a specific audience, each built with genuine local knowledge, each maintained by
-            people who actually know the places they write about.
+            The Sefton Coast Network is four guides, each for a different reader: visitors to
+            Southport, day trips to Formby, golfers, and people who come for the wildlife. We check
+            practical details against official sources when we write a page and when we revise it.
           </p>
           <p>
-            We are independent. We are not funded by local authorities or tourism boards. We earn
-            revenue through affiliate commissions and featured listings, disclosed clearly on every
-            site. Our editorial independence is non-negotiable.
+            We earn money from advertising, featured places and sponsored articles. Every one of them
+            is labelled on the page, and paying for a space does not change what we write.
           </p>
         </div>
       </section>
